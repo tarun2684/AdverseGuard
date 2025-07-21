@@ -1,11 +1,18 @@
-# Ignore Python virtual environments
-venv/
-ENV/
-env/
-.venv/
-
-# Ignore Python cache files
+# Python
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
+
+# Virtualenv
+.venv/
+env/
+venv/
+
+# Data/Models
+*.pkl
+*.h5
+*.csv
+
+# System
+.DS_Store
+.idea/
+.vscode/
