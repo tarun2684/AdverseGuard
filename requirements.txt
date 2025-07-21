@@ -1,0 +1,10 @@
+click
+numpy
+pandas
+matplotlib
+scikit-learn
+torch
+tensorflow
+foolbox
+adversarial-robustness-toolbox
+textattack
