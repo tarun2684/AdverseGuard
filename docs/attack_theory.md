@@ -9,12 +9,14 @@ FGSM creates a small perturbation to the input image that is imperceptible to hu
 ## 📐 Mathematical Formula
 
 Let:
+$$
 
 - \( x \): Original input image  
 - \( y \): True label  
 - \( \theta \): Model parameters  
 - \( J(\theta, x, y) \): Loss function  
 - \( \epsilon \): Small scalar that controls the perturbation strength  
+$$
 
 Then, the adversarial image \( x_{adv} \) is:
 
@@ -27,10 +29,11 @@ x_{adv} = x + \epsilon \cdot \text{sign}(\nabla_x J(\theta, x, y))
 
 ## 📊 Diagram
 
+  ```python
      Clean Image (x)
             │
             ▼
- Compute Gradient: ∇ₓ J(θ, x, y)
+  Compute Gradient: ∇ₓ J(θ, x, y)
             │
             ▼
  Take Sign: sign(∇ₓ J)
@@ -40,6 +43,7 @@ Scale Noise: ε · sign(∇ₓ J)
             │
             ▼
 Adversarial Image: x_adv = x + ε · sign(∇ₓ J)
+  ```
 
 
 ---
