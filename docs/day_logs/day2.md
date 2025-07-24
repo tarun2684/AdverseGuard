@@ -61,7 +61,13 @@ FilePurposesrc/attacks/fgsm.pyGenerates adversarial images using FGSMsrc/evaluat
 
 ### 📈 Example Output (from terminal)
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   $ python main.py  INFO:root:Loading MNIST dataset...  Original Label: 7, Prediction: 6  Adversarial Prediction: 6  Accuracy on clean data: 10.43%  Accuracy on adversarial data: 7.60%  Accuracy drop: 2.83%   `
+`   $ python main.py  
+    INFO:root:Loading MNIST dataset...  
+    Original Label: 7, Prediction: 6  
+    Adversarial Prediction: 6  
+    Accuracy on clean data: 10.43%  
+    Accuracy on adversarial data: 7.60%  
+    Accuracy drop: 2.83%   `
 
 ### 🧾 Tasks Completed
 
