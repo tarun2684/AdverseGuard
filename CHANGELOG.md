@@ -1,4 +1,20 @@
 # 🧾 ChangeLog
+### [Day 3] - 2025-07-25  
+
+**Improved**  
+- Refactored `load_model()` to fix incorrect keyword usage (`model_path` ➝ `path`) in `main.py`.  
+- Handled exceptions for missing model files and provided meaningful error messages.  
+
+**Tested**  
+- Ran `main.py` with `--attack fgsm` successfully.  
+- Verified adversarial example generation with FGSM.  
+- Evaluated model accuracy on clean (97.80%) and FGSM adversarial samples (75.16%).  
+- Verified individual prediction output and console summary.  
+
+**Documented**  
+- Interpreted and logged the accuracy drop from clean to adversarial inputs.  
+- Understood how FGSM perturbations affect batch predictions even when single predictions may still succeed.  
+
 
 ## [Day 2] - 2025-07-24
 ### Added
