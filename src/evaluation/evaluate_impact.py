@@ -2,9 +2,10 @@ from torch import device
 import torch
 
 from src.attacks.fgsm import fgsm_attack
+from src.attacks.bim import bim_attack
+from src.attacks.pgd import pgd_attack
 
-
-def evaluate_model_impact(model, test_loader, epsilon):
+def evaluate_model_impact(model, test_loader, epsilon, attack_type="fgsm"):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
     model.eval()
@@ -21,8 +22,15 @@ def evaluate_model_impact(model, test_loader, epsilon):
         pred = output.argmax(dim=1)
         correct_orig += (pred == labels).sum().item()
 
-        # Generate adversarial image
-        adv_images = fgsm_attack(model, images, labels, epsilon)
+        # Select attack
+        if attack_type == "fgsm":
+            adv_images = fgsm_attack(model, images, labels, epsilon)
+        elif attack_type == "bim":
+            adv_images = bim_attack(model, images, labels, epsilon, alpha=0.01, num_iter=10)
+        elif attack_type == "pgd":
+            adv_images = pgd_attack(model, images, labels, epsilon, alpha=0.01, num_iter=10)
+        else:
+            raise ValueError(f"Unknown attack type: {attack_type}")
 
         # Adversarial prediction
         with torch.no_grad():
@@ -36,5 +44,5 @@ def evaluate_model_impact(model, test_loader, epsilon):
     adv_acc = correct_adv / total * 100
 
     print(f"Accuracy on clean data: {orig_acc:.2f}%")
-    print(f"Accuracy on adversarial data: {adv_acc:.2f}%")
+    print(f"Accuracy on adversarial data using {attack_type.upper()}: {adv_acc:.2f}%")
     print(f"Accuracy drop: {orig_acc - adv_acc:.2f}%")

@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torchvision import datasets, transforms
-import logging
 
 
 class SimpleMNISTCNN(nn.Module):
@@ -29,6 +28,11 @@ class SimpleMNISTCNN(nn.Module):
         x = F.relu(self.fc1(x))
         x = self.fc2(x)
         return F.log_softmax(x, dim=1)
-def load_model(pretrained=False):
+
+def load_model(pretrained=False, model_path=None):
     model = SimpleMNISTCNN()
+    if pretrained and model_path:
+        state_dict = torch.load(model_path, map_location=torch.device("cpu"))
+        model.load_state_dict(state_dict)
+        print(f"Loaded pretrained model from {model_path}")
     return model
