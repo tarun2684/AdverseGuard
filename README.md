@@ -1,8 +1,31 @@
 # Adversarial ML Red Team Toolkit
 
-🧠 A tool to test ML models against adversarial attacks such as FGSM, PGD, and TextFooler.
+🧠 **Adversarial ML Red Team Toolkit** is a Python-based utility for testing machine learning models against common adversarial attacks in **computer vision** and **NLP** domains.  
+It supports attacks such as **FGSM**, **PGD**, and **TextFooler**, helping you evaluate your model’s robustness under malicious perturbations.
 
-## How to Use
+---
+
+## Features
+
+- 🔍 **Multiple attack methods**: FGSM, PGD, TextFooler (extendable to more).
+- 📊 **Performance evaluation** before and after attack.
+- 🛠 **Plug-and-play** with scikit-learn, PyTorch, or TensorFlow models.
+- 📦 **Customizable** attack parameters via CLI.
+- 🧪 Works on **image** and **text** datasets.
+
+---
+
+## Installation
 
 ```bash
-python src/cli.py --model model.pkl --data test.csv --attack fgsm --attack pgd
+# Clone the repository
+git clone https://github.com/yourusername/adversarial-ml-redteam.git
+cd adversarial-ml-redteam
+
+# Create and activate a virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate   # On macOS/Linux
+venv\Scripts\activate      # On Windows
+
+# Install dependencies
+pip install -r requirements.txt
